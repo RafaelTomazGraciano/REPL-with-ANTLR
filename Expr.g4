@@ -2,9 +2,9 @@ grammar Expr;
 
 prog:   VAR '=' expr | expr;
 
-expr: term ('+' expr | '-' expr)?;
+expr: term ('+'| '-') expr | term;
 
-term: fact ('*' term | '/' term)?;
+term: fact ('*'| '/') term | fact;
 
 fact: '(' expr ')'| INT | VAR;
 

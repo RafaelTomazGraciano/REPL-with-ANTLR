@@ -163,36 +163,36 @@ public partial class ExprParser : Parser {
 	public ExprContext expr() {
 		ExprContext _localctx = new ExprContext(Context, State);
 		EnterRule(_localctx, 2, RULE_expr);
+		int _la;
 		try {
-			EnterOuterAlt(_localctx, 1);
-			{
-			State = 14;
-			term();
 			State = 19;
 			ErrorHandler.Sync(this);
-			switch (TokenStream.LA(1)) {
-			case T__1:
+			switch ( Interpreter.AdaptivePredict(TokenStream,1,Context) ) {
+			case 1:
+				EnterOuterAlt(_localctx, 1);
 				{
+				State = 14;
+				term();
 				State = 15;
-				Match(T__1);
+				_la = TokenStream.LA(1);
+				if ( !(_la==T__1 || _la==T__2) ) {
+				ErrorHandler.RecoverInline(this);
+				}
+				else {
+					ErrorHandler.ReportMatch(this);
+				    Consume();
+				}
 				State = 16;
 				expr();
 				}
 				break;
-			case T__2:
+			case 2:
+				EnterOuterAlt(_localctx, 2);
 				{
-				State = 17;
-				Match(T__2);
 				State = 18;
-				expr();
+				term();
 				}
 				break;
-			case Eof:
-			case T__6:
-				break;
-			default:
-				break;
-			}
 			}
 		}
 		catch (RecognitionException re) {
@@ -230,38 +230,36 @@ public partial class ExprParser : Parser {
 	public TermContext term() {
 		TermContext _localctx = new TermContext(Context, State);
 		EnterRule(_localctx, 4, RULE_term);
+		int _la;
 		try {
-			EnterOuterAlt(_localctx, 1);
-			{
-			State = 21;
-			fact();
 			State = 26;
 			ErrorHandler.Sync(this);
-			switch (TokenStream.LA(1)) {
-			case T__3:
+			switch ( Interpreter.AdaptivePredict(TokenStream,2,Context) ) {
+			case 1:
+				EnterOuterAlt(_localctx, 1);
 				{
+				State = 21;
+				fact();
 				State = 22;
-				Match(T__3);
+				_la = TokenStream.LA(1);
+				if ( !(_la==T__3 || _la==T__4) ) {
+				ErrorHandler.RecoverInline(this);
+				}
+				else {
+					ErrorHandler.ReportMatch(this);
+				    Consume();
+				}
 				State = 23;
 				term();
 				}
 				break;
-			case T__4:
+			case 2:
+				EnterOuterAlt(_localctx, 2);
 				{
-				State = 24;
-				Match(T__4);
 				State = 25;
-				term();
+				fact();
 				}
 				break;
-			case Eof:
-			case T__1:
-			case T__2:
-			case T__6:
-				break;
-			default:
-				break;
-			}
 			}
 		}
 		catch (RecognitionException re) {
@@ -345,15 +343,15 @@ public partial class ExprParser : Parser {
 	private static int[] _serializedATN = {
 		4,1,10,37,2,0,7,0,2,1,7,1,2,2,7,2,2,3,7,3,1,0,1,0,1,0,1,0,3,0,13,8,0,1,
 		1,1,1,1,1,1,1,1,1,3,1,20,8,1,1,2,1,2,1,2,1,2,1,2,3,2,27,8,2,1,3,1,3,1,
-		3,1,3,1,3,1,3,3,3,35,8,3,1,3,0,0,4,0,2,4,6,0,0,39,0,12,1,0,0,0,2,14,1,
-		0,0,0,4,21,1,0,0,0,6,34,1,0,0,0,8,9,5,8,0,0,9,10,5,1,0,0,10,13,3,2,1,0,
-		11,13,3,2,1,0,12,8,1,0,0,0,12,11,1,0,0,0,13,1,1,0,0,0,14,19,3,4,2,0,15,
-		16,5,2,0,0,16,20,3,2,1,0,17,18,5,3,0,0,18,20,3,2,1,0,19,15,1,0,0,0,19,
-		17,1,0,0,0,19,20,1,0,0,0,20,3,1,0,0,0,21,26,3,6,3,0,22,23,5,4,0,0,23,27,
-		3,4,2,0,24,25,5,5,0,0,25,27,3,4,2,0,26,22,1,0,0,0,26,24,1,0,0,0,26,27,
-		1,0,0,0,27,5,1,0,0,0,28,29,5,6,0,0,29,30,3,2,1,0,30,31,5,7,0,0,31,35,1,
-		0,0,0,32,35,5,9,0,0,33,35,5,8,0,0,34,28,1,0,0,0,34,32,1,0,0,0,34,33,1,
-		0,0,0,35,7,1,0,0,0,4,12,19,26,34
+		3,1,3,1,3,1,3,3,3,35,8,3,1,3,0,0,4,0,2,4,6,0,2,1,0,2,3,1,0,4,5,37,0,12,
+		1,0,0,0,2,19,1,0,0,0,4,26,1,0,0,0,6,34,1,0,0,0,8,9,5,8,0,0,9,10,5,1,0,
+		0,10,13,3,2,1,0,11,13,3,2,1,0,12,8,1,0,0,0,12,11,1,0,0,0,13,1,1,0,0,0,
+		14,15,3,4,2,0,15,16,7,0,0,0,16,17,3,2,1,0,17,20,1,0,0,0,18,20,3,4,2,0,
+		19,14,1,0,0,0,19,18,1,0,0,0,20,3,1,0,0,0,21,22,3,6,3,0,22,23,7,1,0,0,23,
+		24,3,4,2,0,24,27,1,0,0,0,25,27,3,6,3,0,26,21,1,0,0,0,26,25,1,0,0,0,27,
+		5,1,0,0,0,28,29,5,6,0,0,29,30,3,2,1,0,30,31,5,7,0,0,31,35,1,0,0,0,32,35,
+		5,9,0,0,33,35,5,8,0,0,34,28,1,0,0,0,34,32,1,0,0,0,34,33,1,0,0,0,35,7,1,
+		0,0,0,4,12,19,26,34
 	};
 
 	public static readonly ATN _ATN =

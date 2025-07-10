@@ -5,6 +5,9 @@ x64/
 [Bb]in/
 [Oo]bj/
 
+#ANTLR
+.antlr/
+
 # Visual Studio files
 .vs/
 *.user

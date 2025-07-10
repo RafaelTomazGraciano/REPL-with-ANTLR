@@ -33,17 +33,33 @@ public class Program{
                 var tokenStream = new CommonTokenStream(lexer);
                 var parser = new ExprParser(tokenStream);
 
+                var errorListener = new ErrorListener();
+                lexer.RemoveErrorListeners();
+                parser.RemoveErrorListeners();
+                lexer.AddErrorListener(errorListener);
+                parser.AddErrorListener(errorListener);
+
                 var tree = parser.prog();
 
+                if(errorListener.Errors.Count > 0){
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    foreach (var error in errorListener.Errors){
+                        Console.WriteLine(error);
+                    }
+                    continue;
+                }
+
+                
                 int result = visitor.Visit(tree);
+                
                 if (!visitor.LastWasAssignment){
                     Console.ForegroundColor = ConsoleColor.Yellow;
                     Console.WriteLine(result);
                 }
             }
-            catch (Exception ex){
+            catch (Exception e){
                 Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine($"Error: {ex.Message}");
+                Console.WriteLine(e.Message);
             }
             finally{
                 Console.ResetColor();

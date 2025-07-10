@@ -43,7 +43,7 @@ public class EvalVisitor : ExprBaseVisitor<int>{
         if (context.VAR() != null){
             string varName = context.VAR().GetText();
             if (!memory.ContainsKey(varName))
-                throw new Exception($"Variável '{varName}' não definida.");
+                throw new Exception($"Variable '{varName}' is not defined.");
             return memory[varName];
         }
         return Visit(context.expr());
